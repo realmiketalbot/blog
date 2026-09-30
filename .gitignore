@@ -4,3 +4,5 @@
 .DS_Store
 
 **/*.quarto_ipynb
+# Unfinished posts and their data stay local; this repo is public
+/_drafts/
