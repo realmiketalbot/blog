@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Mike Talbot"
+  site-url: https://miketalbot.io/blog
+  description: "Writing on hydrology, data visualization, and science communication."
+  navbar:
+    left:
+      - text: Posts
+        href: index.qmd
+    right:
+      - text: miketalbot.io
+        href: https://miketalbot.io
+      - icon: rss
+        href: index.xml
+        aria-label: RSS feed
+
+format:
+  html:
+    from: markdown+emoji
+    theme:
+      light: [cosmo, styles/light.scss]
+      dark: [cosmo, styles/dark.scss]
+    css: styles/common.css
+    toc: true
+    code-copy: true
+    highlight-style: a11y
+    reference-location: margin
+    smooth-scroll: true
+
+execute:
+  freeze: auto

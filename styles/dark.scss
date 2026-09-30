@@ -1,0 +1,19 @@
+/*-- scss:defaults --*/
+// Mirrors the .dark tokens in realmiketalbot.github.io/src/styles/global.css
+$body-bg: #0a0e13;
+$body-color: #e6edf3;
+$text-muted: #a3b0bd;
+$link-color: #38bdf8;
+$primary: #38bdf8;
+$border-color: #243040;
+$code-block-bg: #11171e;
+$code-color: #e6edf3;
+$navbar-bg: #0a0e13;
+$navbar-fg: #a3b0bd;
+$navbar-hl: #38bdf8;
+$footer-bg: #0a0e13;
+
+$font-family-sans-serif: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+$font-family-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$headings-font-family: $font-family-monospace;
+$web-font-path: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap";
