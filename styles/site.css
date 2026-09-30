@@ -230,7 +230,7 @@ body.quarto-light .site-theme-toggle .icon-moon {
   animation-delay: 0.25s;
 }
 .quarto-title-banner .quarto-title h1.title {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
@@ -387,7 +387,10 @@ hr {
   font-weight: 700;
   letter-spacing: -0.025em;
 }
-.quarto-post a:hover .listing-title {
+.quarto-post .listing-title a {
+  transition: color 0.2s;
+}
+.quarto-post .listing-title a:hover {
   color: var(--accent);
 }
 .quarto-post .listing-date {
@@ -398,10 +401,6 @@ hr {
 .quarto-post .listing-subtitle,
 .quarto-post .listing-description {
   color: var(--muted);
-}
-.quarto-post .thumbnail img {
-  border: 1px solid var(--line);
-  background: #fff;
 }
 #quarto-margin-sidebar .quarto-listing-category .category {
   color: var(--muted);
@@ -433,9 +432,7 @@ hr {
   font-size: 0.875rem;
   color: var(--fg);
 }
-.site-footer-meta {
-  margin: 0.25rem 0 0;
-  font-size: 0.875rem;
+.site-footer-year {
   color: var(--subtle);
 }
 .site-social {

@@ -5,6 +5,8 @@ listing:
   contents: posts
   sort: "date desc"
   type: default
+  # No thumbnails: title and description use the full width
+  fields: [date, title, subtitle, description, categories]
   categories: true
   sort-ui: false
   filter-ui: false
