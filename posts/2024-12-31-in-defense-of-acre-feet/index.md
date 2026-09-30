@@ -30,9 +30,7 @@ I grew up in the US, so as hard as it is for me to intuitively grasp how much I 
 
 Allow me to briefly remind you that an acre is defined as 43,560 square feet (which, by the way, makes an acre-foot equal to 43,560 cubic feet) and that this is about the size of an American football field without its end zones, or somewhere near one half the size of a professional soccer pitch. A foot is exactly 0.3048 meters, so an acre-foot is roughly equivalent to 1233.48 cubic meters. This is not close to a nice round number, to be sure, and I can understand the frustration that someone who is familiar with cubic meters might have at being forced to do the mental unit-conversion math during a conference presentation.
 
-![Acre Comparison](images/acre-size-comparison.png)
-
-<small>A visual comparison of an acre to an American football field and a standard soccer pitch (to scale) [original content].</small>
+![A visual comparison of an acre to an American football field and a standard soccer pitch (to scale) [original content].](images/acre-size-comparison.png)
 
 Admittedly, the acre-foot is a unique unit. I've been racking my brain and perusing the <a href="https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement">list of unusual units of measurement</a> to think of another unit that combines two different units of measure for the same dimension[^1] -- length in this case -- and I've only come up with two: the <a href="https://en.wikipedia.org/wiki/Board_foot">board foot</a> and the hectare-meter -- the latter of which I have seen in the scientific literature as, I believe, merely an SI version of the acre-foot. So, carpentry aside, it appears that this may be unique to the field of hydrology where, perhaps, we simply have a need for such a unit -- e.g., to convey how much water there is when it floods in a way that humans understand. This is really the fundamental utility of such a unit: someone without scientific training can visualize what you mean (with a modicum of explanation, if necessary) when you talk about an acre-foot of water.
 
@@ -70,7 +68,7 @@ I read <a href="https://www.nature.com/articles/s41586-024-07299-y" target="_bla
 
 There are myriad <a href="https://wpdatatables.com/misleading-statistics/" target="_blank">ways to bias the presentation of numbers</a> whether purposely or accidentally, but one of the more annoying ones to me personally is simply choosing units that make your numbers look bigger or smaller to meet your aims. This can range from the relatively innocuous such as reporting <a href="https://madeblue.org/en/17-billion-litres-on-world-water-day-2024/" target="_blank">clean water produced in billions of liters</a> or <a href="https://www.researchgate.net/publication/257984531_Managing_Materials_for_a_Twenty-first_Century_Military" target="_blank">mineral stocks in trillions of grams</a> to the more nefarious such as <a href="https://www.huffpost.com/entry/using-misleading-science_b_585666" target="_blank">comparing bottled water consumption to total groundwater withdrawals</a> (i.e., using a very large denominator) to make said consumption seem insignificant. 
 
-![Wonka Volume](images/wonka-volume.png)
+![](images/wonka-volume.png)
 
 Even the intentional _exclusion_ of numbers can be highly unethical. A perfect example is the long-repeated claim that the US spends "too much" on foreign aid: with no number attached, it has left many Americans believing that foreign aid makes up about 25% of the federal budget, when <a href='https://www.brookings.edu/articles/what-every-american-should-know-about-us-foreign-aid/' target='_blank'>it is actually less than 1%</a>. 
 

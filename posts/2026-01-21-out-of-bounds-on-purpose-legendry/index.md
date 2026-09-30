@@ -60,7 +60,7 @@ ggplot() +
     )
 ```
 
-![OOB Map Complete](images/oob_map_complete.png)
+![](images/oob_map_complete.png)
 
 What might immediately jump out to you from this map is that our skewed distribution leads to a large number of values showing up in yellow (the bottom of our color scale), and progressively fewer showing up in green, blue, or purple. What this effectively does is cluster the majority of values in a narrow band of our color scale, which makes it difficult to differentiate among the stations clustered at the low end.
 
@@ -93,7 +93,7 @@ ggplot() +
     )
 ```
 
-![OOB Map Clipped](images/oob_map_clipped.png)
+![](images/oob_map_clipped.png)
 
 This clearly increases interpretability by spreading out our common values across the color scale. However, it also creates a new problem: once you squish out-of-range values into the `limits`, the legend no longer communicates that those colors include values beyond the endpoints. Without an explicit indicator, a reader can reasonably interpret the darkest color as “≈ 1,000” rather than “≥ 1,000” (up to 4,842, our largest value), collapsing the extremes into an indistinguishable category. 
 
@@ -133,7 +133,7 @@ ggplot() +
     theme_void()
 ```
 
-![OOB Map Clipped with End Caps](images/oob_map_clipped_with_endcaps.png)
+![](images/oob_map_clipped_with_endcaps.png)
 
 Voilà—out of bounds, on purpose. Now your plot can focus on the bulk of the data yet stay honest about the extremes.
 
