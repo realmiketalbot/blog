@@ -9,7 +9,7 @@ categories:
 
 ## Data visualization as an art
 
-I felt the need to include this brief preamble for one reason:[^1] to acknowledge that data visualization is often (but not always) more art than science. This will actually be my first in a series of posts on this subject, and we'll cover some broader topics later.
+I felt the need to include this brief preamble for one reason:[^1] to acknowledge that data visualization is often (but not always) more art than science. I'll probably have more to say on this subject in future posts.
 
 A perfect and ubiquitous example of where data visualization can go wrong is with <em>color scales</em>: we can easily churn through a long list of palettes to find one that makes a figure “pop”—but if the encoding implies a numeric story the data don’t support, the plot becomes persuasive in the wrong way. My rule of thumb is that the figure itself should carry the burden of correct interpretation: captions should add context, not rescue an ambiguous encoding ("let the plot do the work"). So it behooves me to be constantly on the lookout for small, concrete tricks that make a visual more intuitive. This post is about one such trick. 
 
@@ -135,9 +135,9 @@ ggplot() +
 
 ![OOB Map Clipped with End Caps](images/oob_map_clipped_with_endcaps.png)
 
-Voila—out of bounds, on purpose. Now your plot can focus on the bulk of the data yet stay honest about the extremes.
+Voilà—out of bounds, on purpose. Now your plot can focus on the bulk of the data yet stay honest about the extremes.
 
-Big thanks to the developer of `legendry`. You made my day.
+Big thanks to Teun van den Brand for `legendry`. You made my day.
 
 <hr>
 
@@ -148,5 +148,5 @@ Big thanks to the developer of `legendry`. You made my day.
 [^1]: Ok, two reasons... because every good blog post starts with an <a href="https://xkcd.com/2537/" target="_blank" rel="noopener">xkcd comic</a>.
 [^2]: Here's a <a href="https://gist.github.com/realmiketalbot/0bd0af38c5b0f74c0d1fe16f895fe80d" target="_blank">reprex</a> you can play with since I haven't provided you with my data.
 [^3]: As I'm using this data to illustrate a visualization method, I'm intentionally not normalizing streamflow by watershed area, which would of course reduce the skewness of the distribution considerably.
-[^4]: I use Python for a significant portion of my research (e.g., my machine learning model code), so this isn't about "R vs Python," which I believe to be an <a href="https://nonstandarddev.com/posts/r-vs-python/" target="_blank">utterly pointless debate</a> that nonetheless seems to persist. Part of why I often default to R is that I generally need to write significantly fewer lines of code in R than I would in Python to complete exactly the same task. But that's not the only reason. If you're interested in a deeper dive on why I believe R is _objectively_ better than Python **for data visualization**, check out <a href="https://edwinth.github.io/blog/nse/" target="_blank">Edwin Thoen's blog post</a> on one of the features of R that makes it so powerful: non-standard evaluation (NSE).
+[^4]: I use Python for a significant portion of my research (e.g., my machine learning model code), so this isn't about "R vs Python," which I believe to be an <a href="https://nonstandarddev.com/posts/r-vs-python/" target="_blank">utterly pointless debate</a> that nonetheless seems to persist. Part of why I often default to R is that I generally need to write significantly fewer lines of code in R than I would in Python to complete exactly the same task. But that's not the only reason. If you're curious why I find R so well suited to data visualization, check out <a href="https://edwinth.github.io/blog/nse/" target="_blank">Edwin Thoen's blog post</a> on one of the features of R that makes it so powerful: non-standard evaluation (NSE).
 [^5]: Note that while `oob = scales::oob_squish` controls how out-of-range data are mapped to colors, `guide_colbar(oob = "squish", show = NA)` controls how the legend signals (and colors) the out-of-range end caps. You'll typically want to use both.
