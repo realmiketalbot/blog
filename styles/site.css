@@ -1,0 +1,476 @@
+/*
+ * Blog styles that mirror miketalbot.io (realmiketalbot.github.io).
+ * The tokens below copy src/styles/global.css there; keep the two in step.
+ * Dark is the default, as on the main site. Quarto adds .quarto-light to
+ * <body> when the visitor picks light mode.
+ */
+:root,
+body.quarto-dark {
+  --bg: #0a0e13;
+  --surface: #11171e;
+  --surface-2: #19212b;
+  --line: #243040;
+  --fg: #e6edf3;
+  --muted: #a3b0bd;
+  --subtle: #8391a0;
+  --accent: #38bdf8;
+  --accent-strong: #7dd3fc;
+  --accent-soft: rgb(56 189 248 / 0.12);
+  --grid: rgb(230 237 243 / 0.05);
+  --header-h: 57px;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body.quarto-light {
+  --bg: #ffffff;
+  --surface: #f6f8fa;
+  --surface-2: #eaeef2;
+  --line: #d9dee4;
+  --fg: #0f172a;
+  --muted: #475569;
+  --subtle: #64748b;
+  --accent: #0369a1;
+  --accent-strong: #075985;
+  --accent-soft: rgb(3 105 161 / 0.1);
+  --grid: rgb(15 23 42 / 0.06);
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Header (Header.astro) ---------- */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1030;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+}
+.site-header.is-scrolled {
+  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--line);
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+}
+.site-wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.site-wordmark span {
+  color: var(--accent);
+}
+.site-wordmark:hover {
+  color: var(--accent);
+}
+.site-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.site-sections {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-sections a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.site-sections a:hover {
+  color: var(--fg);
+}
+.site-pill {
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  padding: 0.375rem 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: var(--fg);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+.site-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.site-pill.is-active {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+.site-nav-right .site-pill + .site-pill {
+  margin-left: -1rem;
+}
+.site-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  background: none;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+.site-theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.site-theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+.site-theme-toggle .icon-moon,
+body.quarto-light .site-theme-toggle .icon-sun {
+  display: none;
+}
+body.quarto-light .site-theme-toggle .icon-moon {
+  display: inline;
+}
+@media (min-width: 640px) {
+  .site-nav {
+    padding: 0.75rem 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .site-sections {
+    display: flex;
+  }
+}
+
+/* ---------- Title banner (Hero.astro's grid, glow and hydrograph) ---------- */
+
+.quarto-title-block .quarto-title-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding-top: calc(var(--header-h) + 3.5rem);
+  padding-bottom: 7rem;
+  background: transparent;
+  color: var(--fg);
+}
+.quarto-title-banner::before,
+.quarto-title-banner::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+/* Grid with an accent glow from the top-left corner */
+.quarto-title-banner::before {
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 900px 700px at 0% 0%, var(--accent-soft), transparent 70%),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 90% at 70% 20%, black 30%, transparent 100%);
+}
+/* Faint hydrograph along the bottom edge */
+.quarto-title-banner::after {
+  inset: auto 0 0 0;
+  height: 6rem;
+  background-color: var(--accent);
+  opacity: 0.3;
+  -webkit-mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"%3E%3Cpath d="M0 170 L180 168 C230 166 260 160 290 140 C320 118 335 40 360 38 C385 36 400 110 440 138 C490 168 560 162 640 164 L720 162 C760 160 780 150 800 128 C815 110 825 82 840 82 C858 82 868 120 900 144 C950 170 1060 166 1200 168" fill="none" stroke="white" stroke-width="2" vector-effect="non-scaling-stroke"/%3E%3Cpath d="M0 190 L1200 190" fill="none" stroke="white" stroke-width="1" stroke-dasharray="4 6" vector-effect="non-scaling-stroke"/%3E%3C/svg%3E') center / 100% 100% no-repeat;
+  mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"%3E%3Cpath d="M0 170 L180 168 C230 166 260 160 290 140 C320 118 335 40 360 38 C385 36 400 110 440 138 C490 168 560 162 640 164 L720 162 C760 160 780 150 800 128 C815 110 825 82 840 82 C858 82 868 120 900 144 C950 170 1060 166 1200 168" fill="none" stroke="white" stroke-width="2" vector-effect="non-scaling-stroke"/%3E%3Cpath d="M0 190 L1200 190" fill="none" stroke="white" stroke-width="1" stroke-dasharray="4 6" vector-effect="non-scaling-stroke"/%3E%3C/svg%3E') center / 100% 100% no-repeat;
+}
+.quarto-title-banner .quarto-title > * {
+  animation: fadeIn 0.7s ease-out both;
+}
+.quarto-title-banner .quarto-title > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+.quarto-title-banner .quarto-title > :nth-child(n + 3) {
+  animation-delay: 0.25s;
+}
+.quarto-title-banner .quarto-title h1.title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--fg);
+}
+.quarto-title-banner .subtitle {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+.quarto-title-meta-heading {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+/* Category chips */
+.quarto-title-banner .quarto-categories {
+  margin-top: 1.25rem;
+}
+.quarto-category,
+.listing-categories .listing-category,
+#quarto-margin-sidebar .quarto-listing-category .category {
+  font-family: var(--font-mono);
+}
+.quarto-category,
+.listing-categories .listing-category {
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.7rem;
+  text-transform: none;
+  color: var(--muted);
+  opacity: 1;
+  transition: color 0.2s, border-color 0.2s;
+}
+.quarto-category:hover,
+.listing-categories .listing-category:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Post body ---------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-mono);
+  color: var(--fg);
+}
+/* Section headings get the main site's short accent bar instead of a rule */
+#quarto-document-content h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+#quarto-document-content h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 0.75rem;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+/* Inline links underline the same way as the main site's running text */
+main :is(p, li, td, small) > a:not(.footnote-ref):not(.footnote-back),
+.site-footer a {
+  color: var(--accent);
+}
+main :is(p, li, td, small) > a:not(.footnote-ref):not(.footnote-back) {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+main :is(p, li, td, small) > a:not(.footnote-ref):not(.footnote-back):hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Inline code: a quiet chip */
+:not(pre) > code:not(.sourceCode) {
+  color: var(--fg);
+  background-color: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+/* Code blocks sit on a bordered panel */
+div.sourceCode {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+div.sourceCode pre.sourceCode {
+  background: transparent;
+}
+
+main img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+hr {
+  border-color: var(--line);
+  opacity: 1;
+}
+
+/* Margin: table of contents and footnotes */
+#TOC .toc-title,
+#quarto-margin-sidebar .quarto-listing-category-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subtle);
+}
+#TOC .nav-link {
+  color: var(--muted);
+}
+#TOC .nav-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+.sidebar {
+  top: calc(var(--header-h) + 1.5rem) !important;
+}
+.column-margin,
+.aside,
+.margin-aside {
+  color: var(--subtle);
+}
+
+/* ---------- Post listing ---------- */
+
+.quarto-listing-default .quarto-post {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.quarto-post .listing-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.quarto-post a:hover .listing-title {
+  color: var(--accent);
+}
+.quarto-post .listing-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.quarto-post .listing-subtitle,
+.quarto-post .listing-description {
+  color: var(--muted);
+}
+.quarto-post .thumbnail img {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+#quarto-margin-sidebar .quarto-listing-category .category {
+  color: var(--muted);
+}
+#quarto-margin-sidebar .quarto-listing-category .category.active,
+#quarto-margin-sidebar .quarto-listing-category .category:hover {
+  color: var(--accent);
+}
+
+/* ---------- Footer (Footer.astro) ---------- */
+
+.site-footer {
+  margin-top: 5rem;
+  border-top: 1px solid var(--line);
+}
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+.site-footer-name {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--fg);
+}
+.site-footer-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+.site-social {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-social a {
+  display: block;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.site-social a:hover {
+  color: var(--accent);
+}
+.site-social svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+@media (min-width: 640px) {
+  .site-footer-inner {
+    flex-direction: row;
+    align-items: center;
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

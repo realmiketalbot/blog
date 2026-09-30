@@ -1,5 +1,6 @@
 ---
 title: "Posts"
+subtitle: "Writing on hydrology, data visualization, and science communication."
 listing:
   contents: posts
   sort: "date desc"
@@ -9,5 +10,4 @@ listing:
   filter-ui: false
   feed: true
 page-layout: full
-title-block-banner: false
 ---

@@ -1,0 +1,22 @@
+<meta name="theme-color" content="#0a0e13" />
+<script>
+  // Share the light/dark choice with miketalbot.io, which stores it under
+  // localStorage "theme". Quarto keeps its own key, where "alternate" is dark.
+  try {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      localStorage.setItem("quarto-color-scheme", theme === "dark" ? "alternate" : "default");
+    }
+  } catch (e) {}
+  window.addEventListener("DOMContentLoaded", () => {
+    const toggle = window.quartoToggleColorScheme;
+    if (!toggle) return;
+    window.quartoToggleColorScheme = () => {
+      toggle();
+      try {
+        const dark = localStorage.getItem("quarto-color-scheme") === "alternate";
+        localStorage.setItem("theme", dark ? "dark" : "light");
+      } catch (e) {}
+    };
+  });
+</script>

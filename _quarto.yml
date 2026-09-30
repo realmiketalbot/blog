@@ -6,24 +6,20 @@ website:
   title: "Mike Talbot"
   site-url: https://miketalbot.io/blog
   description: "Writing on hydrology, data visualization, and science communication."
-  navbar:
-    left:
-      - text: Posts
-        href: index.qmd
-    right:
-      - text: miketalbot.io
-        href: https://miketalbot.io
-      - icon: rss
-        href: index.xml
-        aria-label: RSS feed
 
 format:
   html:
     from: markdown+emoji
     theme:
-      light: [cosmo, styles/light.scss]
+      # Dark is listed first so it is the default, as on miketalbot.io
       dark: [cosmo, styles/dark.scss]
-    css: styles/common.css
+      light: [cosmo, styles/light.scss]
+    css: styles/site.css
+    # The header and footer are copies of miketalbot.io's, in place of Quarto's navbar
+    include-in-header: _includes/theme-sync.html
+    include-before-body: _includes/header.html
+    include-after-body: _includes/footer.html
+    title-block-banner: true
     toc: true
     code-copy: true
     highlight-style: a11y
