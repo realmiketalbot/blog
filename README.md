@@ -8,6 +8,18 @@ Source for [miketalbot.io/blog](https://miketalbot.io/blog), built with [Quarto]
 - Unfinished posts live in `_drafts/`, which is git-ignored so drafts never reach this public repo (they exist only on your machine, so back them up separately). Loose ideas live in `_ideas/`. Quarto ignores `_`-prefixed folders, so neither shows up in the preview or on the site. To publish a draft, move its folder into `posts/` and give it a `date:`.
 - Supporting analysis that shouldn't be rendered goes in a `_`-prefixed folder (e.g. `_drafts/rivers-dont-read-maps/_analysis/`). Large `.rds` data files are git-ignored.
 
+## Style guide
+
+Personable, not performative. Before publishing, check a post against these:
+
+- **One idea per post.** Aim for 1,200–1,800 words. If a tangent needs a footnote to justify itself, cut it.
+- **Don't take digs.** Critique ideas, not people.
+- **Don't explain the joke.** If it needs explaining, cut it.
+- **Show, don't vouch.** Let stories and specifics carry your experience; skip lines that assess your own skills.
+- **Leave politics out** unless it's what the post is about.
+- **Check the facts in the asides.** Throwaway numbers and definitions need the same care as the main argument.
+- **Draft fast, publish slow.** Leave at least a day between finishing a draft and publishing it, then reread it top to bottom.
+
 ## Building
 
 ```sh
