@@ -306,9 +306,6 @@ h1, h2, h3, h4 {
 
 /* Inline links underline the same way as the main site's running text */
 main :is(p, li, td, small) > a:not(.footnote-ref):not(.footnote-back),
-.site-footer a {
-  color: var(--accent);
-}
 main :is(p, li, td, small) > a:not(.footnote-ref):not(.footnote-back) {
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
@@ -432,8 +429,21 @@ hr {
   font-size: 0.875rem;
   color: var(--fg);
 }
-.site-footer-year {
+.site-footer-credit {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
   color: var(--subtle);
+}
+.site-footer-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.site-footer-credit a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 .site-social {
   display: flex;
