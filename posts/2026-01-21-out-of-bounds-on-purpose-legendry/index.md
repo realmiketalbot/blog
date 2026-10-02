@@ -141,7 +141,7 @@ Big thanks to Teun van den Brand for `legendry`. You made my day.
 
 <hr>
 
-<small>I do this for fun, but if you enjoyed reading this (and without ads!), consider <a href="https://buymeacoffee.com/talbotmichu">buying me a coffee</a> to help fuel my next post :coffee:</small>
+<small>I do this for fun, but if you enjoyed reading this (without ads!), consider <a href="https://buymeacoffee.com/talbotmichu">buying me a coffee</a> :coffee:</small>
 
 <hr>
 

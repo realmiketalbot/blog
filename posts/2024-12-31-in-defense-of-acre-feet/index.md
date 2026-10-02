@@ -110,7 +110,7 @@ And let's embrace the swimming pool, the dump truck, and the acre-foot for what 
 
 <hr>
 
-<small>I do this for fun, but if you enjoyed reading this (and without ads!), consider <a href="https://buymeacoffee.com/talbotmichu">buying me a coffee</a> to help fuel my next post :coffee:</small>
+<small>I do this for fun, but if you enjoyed reading this (without ads!), consider <a href="https://buymeacoffee.com/talbotmichu">buying me a coffee</a> :coffee:</small>
 
 <hr>
 
