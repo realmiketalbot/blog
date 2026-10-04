@@ -5,7 +5,7 @@ Source for [miketalbot.io/blog](https://miketalbot.io/blog), built with [Quarto]
 ## Writing
 
 - One folder per post under `posts/`, with the text in `index.md` (or `index.qmd` if it runs R code) and images alongside it.
-- Unfinished posts live in `_drafts/`, which is git-ignored so drafts never reach this public repo (they exist only on your machine, so back them up separately). Loose ideas live in `_ideas/`. Quarto ignores `_`-prefixed folders, so neither shows up in the preview or on the site. To publish a draft, move its folder into `posts/` and give it a `date:`.
+- Unfinished posts live in `_drafts/`, which is git-ignored so drafts never reach this public repo (they exist only on your machine, so back them up separately). Loose ideas live in `_ideas/`, which is committed, so keep them public-safe. Quarto ignores `_`-prefixed folders, so neither shows up in the preview or on the site. To publish a draft, move its folder into `posts/` and give it a `date:`.
 - Supporting analysis that shouldn't be rendered goes in a `_`-prefixed folder (e.g. `_drafts/rivers-dont-read-maps/_analysis/`). Large `.rds` data files are git-ignored.
 
 ## Style guide
