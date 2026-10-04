@@ -195,7 +195,7 @@ There you have it: R and Python as equal partners, right where my data live. I'd
 
 [^csv]: Or at a CSV file without loading it at all: Positron's <a href="https://positron.posit.co/data-explorer.html" target="_blank">Data Explorer</a> opens one straight from the file explorer, which gets filed under "something I didn't even know I needed."
 
-[^xkcd]: Repeat after me: every good blog post <a href="../2026-01-21-out-of-bounds-on-purpose-legendry/index.md">contains an xkcd comic</a>.
+[^xkcd]: Repeat after me: every good blog post contains an xkcd comic.
 
 [^1]: You'll see examples online that use `StrictHostKeyChecking no` with `UserKnownHostsFile /dev/null`. That turns off SSH's check that you're talking to the machine you think you are. If your cluster's nodes are rebuilt often and their keys change, removing the old key with `ssh-keygen -R compute-01` is a safer fix.
 
