@@ -43,7 +43,7 @@ Positron runs on my laptop and draws the interface. Everything else, including t
 
 The examples below assume a cluster that uses Slurm. The names (`login.cluster.example.edu`, `compute-01`, `<partition>`) are placeholders; swap in your own.
 
-## Step 1: Reserve a node
+### Step 1: Reserve a node
 
 Before connecting, I ask the scheduler for a node. On many clusters this isn't optional: you can only SSH into a compute node while you have a job running on it. I do this from inside `tmux` on the login node:
 
@@ -62,7 +62,7 @@ A few notes on this:
 
 Check your cluster's policies before you do any of this. Some clusters don't allow long-running processes on login nodes, and some don't allow SSH to compute nodes at all.
 
-## Step 2: Teach SSH the route
+### Step 2: Teach SSH the route
 
 The connection from laptop to compute node goes through the login node. SSH can do that hop for you with `ProxyJump`, set in `~/.ssh/config` on the laptop (on Windows, that's `C:\Users\<you>\.ssh\config`; the format is the same, though I've only tested this on a Mac, so <abbr title="your mileage may vary">YMMV</abbr>):
 
@@ -85,7 +85,7 @@ Host compute-*
 
 With this in place, `ssh compute-01` takes me straight to the node. The compute node's name has to resolve from the login node, which it normally will. `StrictHostKeyChecking accept-new` saves a prompt the first time you connect to each node, while still refusing to connect if a node's key changes later.[^1]
 
-## Step 3: Connect from Positron
+### Step 3: Connect from Positron
 
 In Positron, open the command palette and run **Remote-SSH: Connect to Host...**, then pick `compute-01`. The first time, Positron installs its server on the node in `~/.positron-server`. After that, open a folder on the cluster and you're working there: the file explorer, terminals and consoles all live on the node.
 
@@ -93,7 +93,7 @@ Make sure you pick the compute node, not `cluster-login`. Unlike `tmux`, Positro
 
 These steps were checked with Positron 2026.09.1. The remote machine has to run Linux, and Remote SSH only works in the desktop app.
 
-## Step 4: Get R and Python from conda
+### Step 4: Get R and Python from conda
 
 <img src="https://imgs.xkcd.com/comics/python_environment.png" alt="XKCD Python Environment">
 
@@ -133,7 +133,7 @@ Then `conda env create -f environment.yml`. My rule of thumb: let conda install 
 
 One environment holds both R and Python, and they share a single copy of the geospatial libraries underneath. I install `git` in the same environment too, just like R, so it comes along wherever the environment goes, with no modules to load.
 
-## Step 5: Point Positron at the environment
+### Step 5: Point Positron at the environment
 
 Positron finds conda environments by itself. For R, it needs one setting, which is off by default. I set it in my User settings, and it applies to remote sessions too:
 
