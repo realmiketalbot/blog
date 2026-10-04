@@ -411,6 +411,7 @@ hr {
 }
 #quarto-margin-sidebar .quarto-listing-category .category {
   color: var(--muted);
+  font-size: 0.8rem;
 }
 #quarto-margin-sidebar .quarto-listing-category .category.active,
 #quarto-margin-sidebar .quarto-listing-category .category:hover {
