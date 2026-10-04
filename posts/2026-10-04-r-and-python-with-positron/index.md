@@ -87,9 +87,9 @@ With this in place, `ssh compute-01` takes me straight to the node. The compute 
 
 ### Step 3: Connect from Positron
 
-In Positron, open the command palette and run **Remote-SSH: Connect to Host...**, then pick `compute-01`. The first time, Positron installs its server on the node in `~/.positron-server`. After that, open a folder on the cluster and you're working there: the file explorer, terminals and consoles all live on the node.
+In Positron, open the command palette and run **Remote-SSH: Connect to Host...**, then pick (or type) `compute-01`. The first time, Positron installs its server on the node in `~/.positron-server`. After that, open a folder on the cluster and you're working there: the file explorer, terminals and consoles all live on the node.
 
-Make sure you pick the compute node, not `cluster-login`. Unlike `tmux`, Positron isn't lightweight: its server, its language tools and your R and Python sessions all run on whichever machine you connect to, and Posit <a href="https://positron.posit.co/remote-ssh.html" target="_blank">recommends</a> at least 4 GB of RAM for real work. Run all that on a login node, which everyone on the cluster shares, and your IT admins will rain fire down upon you. With `ProxyJump`, the login node only passes the connection along.
+Make sure you specify the compute node here, not `cluster-login`. Unlike `tmux`, Positron isn't lightweight: its server, its language tools and your R and Python sessions all run on whichever machine you connect to, and Posit <a href="https://positron.posit.co/remote-ssh.html" target="_blank">recommends</a> at least 4 GB of RAM for real work. Run all that on a login node, which everyone on the cluster shares, and your HPC admins will rain fire down upon you. With `ProxyJump`, the login node only passes the connection along.
 
 These steps were checked with Positron 2026.09.1. The remote machine has to run Linux, and Remote SSH only works in the desktop app.
 
