@@ -23,8 +23,10 @@ Personable, not performative. Before publishing, check a post against these:
 ## Building
 
 ```sh
-quarto preview   # local preview with live reload, drafts visible
-quarto render    # build the site into _site/
+quarto preview                            # local preview of the site with live reload
+quarto render _drafts/<post>/index.md     # render one draft next to its source (never added to the site),
+                                          # then open _drafts/<post>/index.html; `quarto preview` fails on drafts
+quarto render                             # build the site into _site/
 ```
 
 Pushing to `main` renders and deploys the site with GitHub Actions. Posts that execute code are rendered locally first; commit the resulting `_freeze/` directory so CI doesn't need R.

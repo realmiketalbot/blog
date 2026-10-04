@@ -1,6 +1,6 @@
 ---
 title: "Posts"
-subtitle: "Writing on hydrology, data visualization, and science communication."
+subtitle: "Writing on hydrology, research computing, and science communication."
 listing:
   contents: posts
   sort: "date desc"

@@ -230,7 +230,7 @@ body.quarto-light .site-theme-toggle .icon-moon {
   animation-delay: 0.25s;
 }
 .quarto-title-banner .quarto-title h1.title {
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(2rem, 4.5vw, 2.6rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
@@ -333,6 +333,16 @@ div.sourceCode {
 }
 div.sourceCode pre.sourceCode {
   background: transparent;
+}
+
+/* Plain code blocks (no language) get the same panel; Bootstrap's default
+   pre colour is black, which disappears in the dark theme */
+main pre:not(.sourceCode) {
+  color: var(--fg);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
 }
 
 main img {

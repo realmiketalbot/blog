@@ -145,7 +145,7 @@ Big thanks to Teun van den Brand for `legendry`. You made my day.
 
 <hr>
 
-[^1]: Ok, two reasons... because every good blog post starts with an <a href="https://xkcd.com/2537/" target="_blank" rel="noopener">xkcd comic</a>.
+[^1]: Ok, two reasons... because every good blog post contains an xkcd comic.
 [^2]: Here's a <a href="https://gist.github.com/realmiketalbot/0bd0af38c5b0f74c0d1fe16f895fe80d" target="_blank">reprex</a> you can play with since I haven't provided you with my data.
 [^3]: As I'm using this data to illustrate a visualization method, I'm intentionally not normalizing streamflow by watershed area, which would of course reduce the skewness of the distribution considerably.
 [^4]: I use Python for a significant portion of my research (e.g., my machine learning model code), so this isn't about "R vs Python," which I believe to be an <a href="https://nonstandarddev.com/posts/r-vs-python/" target="_blank">utterly pointless debate</a> that nonetheless seems to persist. Part of why I often default to R is that I generally need to write significantly fewer lines of code in R than I would in Python to complete exactly the same task. But that's not the only reason. If you're curious why I find R so well suited to data visualization, check out <a href="https://edwinth.github.io/blog/nse/" target="_blank">Edwin Thoen's blog post</a> on one of the features of R that makes it so powerful: non-standard evaluation (NSE).

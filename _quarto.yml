@@ -5,7 +5,7 @@ project:
 website:
   title: "Mike Talbot"
   site-url: https://miketalbot.io/blog
-  description: "Writing on hydrology, data visualization, and science communication."
+  description: "Writing on hydrology, research computing, and science communication."
 
 format:
   html:
