@@ -4,6 +4,7 @@ subtitle: 'Running R and Python on an HPC compute node from Positron'
 date: 2026-10-04
 categories:
   - research-computing
+  - how-to
 ---
 
 ## What is your quest?

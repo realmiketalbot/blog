@@ -5,6 +5,7 @@ date: 2026-01-21
 categories:
   - data-visualization
   - science-communication
+  - how-to
 ---
 
 ## Data visualization as an art
