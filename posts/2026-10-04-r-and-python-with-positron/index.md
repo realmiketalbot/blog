@@ -1,6 +1,6 @@
 ---
 title: 'R and Python and the Holy Grail'
-subtitle: 'Running R and Python on an HPC compute node from Positron'
+subtitle: 'Running R and Python on an HPC compute node with Positron'
 date: 2026-10-04
 categories:
   - research-computing
