@@ -16,7 +16,9 @@ format:
       light: [cosmo, styles/light.scss]
     css: styles/site.css
     # The header and footer are copies of miketalbot.io's, in place of Quarto's navbar
-    include-in-header: _includes/theme-sync.html
+    include-in-header:
+      - _includes/theme-sync.html
+      - _includes/analytics.html
     include-before-body: _includes/header.html
     include-after-body: _includes/footer.html
     title-block-banner: true
