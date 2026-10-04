@@ -12,7 +12,7 @@ categories:
 
 I felt the need to include this brief preamble for one reason:[^1] to acknowledge that data visualization is often (but not always) more art than science. I'll probably have more to say on this subject in future posts.
 
-A perfect and ubiquitous example of where data visualization can go wrong is with <em>color scales</em>: we can easily churn through a long list of palettes to find one that makes a figure “pop”—but if the encoding implies a numeric story the data don’t support, the plot becomes persuasive in the wrong way. My rule of thumb is that the figure itself should carry the burden of correct interpretation: captions should add context, not rescue an ambiguous encoding ("let the plot do the work"). So it behooves me to be constantly on the lookout for small, concrete tricks that make a visual more intuitive. This post is about one such trick. 
+A perfect and ubiquitous example of where data visualization can go wrong is with <em>color scales</em>: we can easily churn through a long list of palettes to find one that makes a figure “pop”—but if the encoding implies a numeric story the data don’t support, the plot becomes persuasive in the wrong way. A good rule of thumb is that the figure itself should carry the burden of correct interpretation: captions should add context, not rescue an ambiguous encoding ("let the plot do the work"). So it behooves me to be constantly on the lookout for small, concrete tricks that make a visual more intuitive. This post is about one such trick. 
 
 <img src="https://imgs.xkcd.com/comics/painbow_award.png" alt="XKCD Painbow Award">
 
