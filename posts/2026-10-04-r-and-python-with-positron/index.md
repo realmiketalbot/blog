@@ -9,17 +9,15 @@ categories:
 
 ## What is your quest?
 
-In my <a href="../2026-01-21-out-of-bounds-on-purpose-legendry/index.md">last post</a>, I mentioned that I do not like `matplotlib`. I also mentioned that I use Python for a significant portion of my research. Both things are true at once. My machine learning models are written in Python, but most of the work around them happens in R: preparing and editing the input files, previewing the outputs, and post-processing the results, figures included. On any given day I'm moving between the two, often within the same analysis, and I want them to be equal partners in science rather than a main language and a guest. I'm hardly unusual in this: as Posit put it when <a href="https://posit.co/blog/positron-product-announcement-aug-2025" target="_blank">announcing Positron</a>, "data teams work in both R and Python, often within the same group" (and, in my case, within the same person).
+In my <a href="../2026-01-21-out-of-bounds-on-purpose-legendry/index.md">last post</a>, I mentioned that I do not like `matplotlib`. I also mentioned that I use Python for a significant portion of my research. Both things are true at once. My machine learning models are written in Python, but most of the work around them happens in R: preparing and editing the input files, previewing the outputs, post-processing the results, generating figures... On any given day I'm moving between the two, often within the same analysis, and I want them to be equal partners rather than feeling like a main language and a guest. I'm hardly unusual in this: as Posit put it when <a href="https://posit.co/blog/positron-product-announcement-aug-2025" target="_blank">announcing Positron</a>, "data teams work in both R and Python, often within the same group" (and, in my case, within the same person). Complicating things further, in my case the models, the input files, and the many thousands of output files they produce all live on a high-performance computing (HPC) cluster.
 
-And all of it lives on a high-performance computing (HPC) cluster: the models, the input files, and the many thousands of output files they produce.
+That leaves me wanting three things from my tools. First, R and Python on equal footing. Second, to work where my data live, since copying files to my laptop every time I want to look at something was never going to scale, and neither was my laptop. Third, a proper <abbr title="integrated development environment">IDE</abbr>. I could do all of this from a terminal, and sometimes I do, but after years of RStudio I like having a console, a plots pane, a list of the objects in my session, a way to look at a data frame without printing it.[^csv] Finding a solution that meets all three of these was a more difficult search than it might seem, but I feel it has finally been solved.
 
-That leaves me wanting three things from my tools (no more, no less). First, R and Python on equal footing. Second, to work where the data live: copying files to my laptop every time I want to look at something was never going to scale, and neither was my laptop. Third, a proper <abbr title="integrated development environment">IDE</abbr>. I could do all of this from a terminal, and sometimes I do, but after years of RStudio I like having a console, a plots pane, a list of the objects in my session, a way to look at a data frame without printing it.[^csv]
-
-The first is where RStudio fell short. For many years it was my home, and a lot of my work lived in R Markdown documents. During my PhD, I wrote nearly all of my homework in R Markdown, knitted to PDF through LaTeX, equations and all. RStudio does support Python, through the <a href="https://rstudio.github.io/reticulate/" target="_blank">`reticulate`</a> package: you can put Python chunks in an R Markdown file, or open a Python console that runs inside your R session. But Python is always the guest. In practice, running Python in R Markdown was a bear: getting `reticulate` to switch between my conda environments was annoying enough that I gave up on Python chunks fairly quickly. I'm not the only one to notice. Marc Dotson <a href="https://occasionaldivergences.com/posts/positron-intro/" target="_blank">describes</a> Python as "a secondary language" in RStudio, and Mauro Lepore <a href="https://www.ixpantia.com/en/blog/positron-from-rstudio" target="_blank">writes</a> that its Python support "never reached the same level as R support."
+The first of these is where RStudio fell short. For many years it was my go-to IDE, and a lot of my work lived in R Markdown documents. During my PhD, I wrote nearly all of my homework in R Markdown, knitted to PDF through LaTeX. RStudio does support Python: through the <a href="https://rstudio.github.io/reticulate/" target="_blank">`reticulate`</a> package, you can put Python chunks in an R Markdown file, or open a Python console that runs inside your R session. But Python always felt like a guest in R's house. In practice, running Python in R Markdown was a bear, and getting `reticulate` to switch between my conda environments was annoying enough that I gave up on Python chunks fairly quickly. I'm not the only one to notice. Marc Dotson <a href="https://occasionaldivergences.com/posts/positron-intro/" target="_blank">describes</a> Python as "a secondary language" in RStudio, and Mauro Lepore <a href="https://www.ixpantia.com/en/blog/positron-from-rstudio" target="_blank">writes</a> that its Python support "never reached the same level as R support."
 
 Jupyter notebooks could, in theory, solve this too: they run R and Python kernels, and many clusters serve them through a browser. But I've _never_ liked Jupyter---though I've tried maybe a dozen times or more. I prefer RStudio's panes to a single scrolling page, and in R Markdown I can run a whole chunk or step through it a line at a time (which is useful for debugging), where Jupyter runs whole cells and sends single lines off to a separate console.
 
-This post describes the setup I've landed on, which gives me all three: <a href="https://positron.posit.co/" target="_blank">Positron</a> on my laptop, with R and Python running on a compute node on the cluster. You don't need a cluster to get something out of it, though. If you use both R and Python, most of this applies wherever your code runs: on your own machine, skip ahead to Step 4; on a cloud server, skip Step 1.
+This post describes the setup I've landed on. With <a href="https://positron.posit.co/" target="_blank">Positron</a> on my laptop as a thin client, I can seemlessly run R and Python running (via a Conda environment) on a compute node on the cluster. You don't need to be using a HPC environment to get something out of it, though. If you use both R and Python, most of this applies wherever your code runs. If your workflow is local, skip ahead to Step 4. If you use a cloud server, skip Step 1.
 
 ## Why Positron
 
@@ -158,9 +156,7 @@ There's one more setting, for git. My compute nodes have no system `git`, and Po
 
 Use the full path to your environment's `git`.
 
-## Gotchas
-
-None of these turned out to be serious. Just flesh wounds.
+## What tripped me up
 
 **Positron won't fork R.** Code that used `future::plan(multicore)` worked from a terminal but failed in Positron, with a refreshingly clear error:
 
@@ -186,7 +182,7 @@ conda activate myenv
 
 ## Where the scheduler still fits
 
-The scheduler isn't dead yet. Big or parallel jobs still belong in `sbatch` scripts: my models train as `sbatch` array jobs, in their own conda environment. But I write those jobs in Positron: the shell scripts, and the YAML configs they read, some of which I generate from R. This setup is for the interactive part: exploring data, debugging, making figures, and working through thousands of model outputs where they already live.
+The Slurm scheduler is still necessary, obviously. Big or parallel jobs still belong in `sbatch` scripts, and my models train as `sbatch` array jobs, in their own conda environment. But I write those jobs using Positron: the shell scripts, and the YAML configs they read, some of which I generate from R. This setup is for the interactive part: exploring data, debugging, making figures, and working through thousands of model outputs where they already live.
 
 ## Wrapping up
 
