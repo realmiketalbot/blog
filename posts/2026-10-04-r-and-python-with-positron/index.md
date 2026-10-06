@@ -17,7 +17,7 @@ The first of these is where RStudio fell short. For many years it was my go-to I
 
 Jupyter notebooks could, in theory, solve this too: they run R and Python kernels, and many clusters serve them through a browser. But I've _never_ liked Jupyter---though I've tried maybe a dozen times or more. I prefer RStudio's panes to a single scrolling page, and in R Markdown I can run a whole chunk or step through it a line at a time (which is useful for debugging), where Jupyter runs whole cells and sends single lines off to a separate console.
 
-This post describes the setup I've landed on. With <a href="https://positron.posit.co/" target="_blank">Positron</a> on my laptop as a thin client, I can seemlessly run R and Python running (via a Conda environment) on a compute node on the cluster. You don't need to be using a HPC environment to get something out of it, though. If you use both R and Python, most of this applies wherever your code runs. If your workflow is local, skip ahead to Step 4. If you use a cloud server, skip Step 1.
+This post describes the setup I've landed on. With <a href="https://positron.posit.co/" target="_blank">Positron</a> on my laptop as a thin client, I can seamlessly run R and Python running (via a Conda environment) on a compute node on the cluster. You don't need to be using a HPC environment to get something out of it, though. If you use both R and Python, most of this applies wherever your code runs. If your workflow is local, skip ahead to Step 4. If you use a cloud server, skip Step 1.
 
 ## Why Positron
 
